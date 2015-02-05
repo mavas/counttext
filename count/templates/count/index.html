@@ -1,0 +1,29 @@
+<head>
+<title>CountText application</title>
+</head>
+
+
+<body>
+
+
+<a href="{% url 'home' %}">Home</a>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<p>This app counts letter occurrences.
+
+<form action='.' method='post'>{% csrf_token %}
+{{ f.as_p }}
+<input type='submit' value='Submit'>
+</form>
+
+</body>
+
+
+</html>
